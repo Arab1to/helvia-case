@@ -1,5 +1,7 @@
 # Etap 4 · 70 min · Roczna zmiana: a co z ludźmi?
 
+> **Decyzje zespołu (finał E4):** [`decyzje-E4.md`](decyzje-E4.md) — 96 etatów objętych zmianą, 0 zwolnień z powodu AI przez 12 mies., 3 fazy z bramami, 3 KPI (SLA NORDY ≥ 95%, ≥ 80% aktywnych kont AI, Q20 w OK ≤ 3,5).
+
 **Cel:** harmonogram 3 faz, plan komunikacji, 3 KPI (po jednym na wierzchołek Trójkąta) i lista ryzyk.
 **Punkt wyjścia:** uwolnione FTE idą na pracę, która przynosi przychód lub chroni klientów — **nie na zwolnienia**.
 

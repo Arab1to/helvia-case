@@ -229,7 +229,8 @@ Jednocześnie stawiamy na wartość zamiast wolumenu: trzy projekty analityczne 
 # ───────────────────────────── SLAJD 3 — CZŁOWIEK + AI + LUDZIE (E3 + E4)
 s = prs.slides.add_slide(BLANK)
 header(s, 3, "CZŁOWIEK + AI · A CO Z LUDŹMI?",
-       "AI przygotowuje, człowiek decyduje: 3 procesy z AI, reklamacje złożone zostają u ludzi — 36 etatów zdolności idzie w SLA i wzrost, nie w zwolnienia")
+       "AI przygotowuje, człowiek decyduje — przez rok zero zwolnień z powodu AI, "
+       "a 36 etatów zdolności idzie w SLA i wzrost")
 
 # tabela procesów (3B)
 text(s, 0.55, 1.85, 7.0, 0.3, [[("Pierwsza fala AI (Etap 3)", {"bold": True, "size": 14, "color": NAVY})]])
@@ -272,30 +273,54 @@ text(s, 0.55, 6.32, 7.0, 0.62, [[("Kontrola: ", {"bold": True, "size": 10.5}),
                                  ("ok. 222 tys. zł z 300 tys. zł ", {"size": 10.5}),
                                  ("(Hybryda P-014 68 · Asystent P-012 72 · Hybryda P-001 82 tys.)", {"size": 9.5, "color": MUTED})]])
 
-# prawa: A co z ludźmi (E4)
+# prawa: A co z ludźmi (E4: 4A, 4B, 4C)
 box(s, 7.85, 1.85, 4.93, 4.95, fill=AMBER_BG)
-text(s, 8.0, 1.95, 4.7, 0.3, [[("A co z ludźmi? (Etap 4)", {"bold": True, "size": 14, "color": NAVY})]])
-tag(s, 10.95, 1.97, 1.7, "UZUPEŁNIĆ W E4")
-text(s, 8.0, 2.4, 4.7, 0.9, [[("ok. 36 etatów", {"bold": True, "size": 26, "color": TEAL})],
-                             [("zdolności miesięcznie (5 789 h/m, hipoteza zespołu*)", {"size": 11, "color": MUTED})]])
-plan = [("Gdzie trafia czas", "szczyty XI–XII i SLA NORDY · S-01 Kastella (6,5 et.) · projekty kierunku (8,6 et.)"),
-        ("Zero zwolnień", "„odciążenie, nie redukcja” przed pilotażem, gwarancja ról; resztę dopasowuje rotacja"),
-        ("Szkolenia", "praca z AI przed startem: OK 9% → [cel] · Finanse 17% → [cel] · liderzy zmian z OK"),
-        ("Ryzyko nr 1", "lęk o pracę: 82% w OK boi się o stanowisko; lęk najsilniej przewiduje odejście (r = −0,68)"),
-        ("3 KPI na 12 mies.", "SLA OK 92,1% → [cel] · błędy reklamacji 6,9% → < 4% · rotacja OK 24,5% → [cel]")]
-y = 3.42
-for t1, t2 in plan:
-    text(s, 8.0, y, 4.7, 0.62, [[(t1 + ": ", {"bold": True, "size": 11}), (t2, {"size": 10.5})]])
-    y += 0.66
+text(s, 8.0, 1.93, 3.0, 0.3, [[("A co z ludźmi? Rok zmiany", {"bold": True, "size": 14, "color": NAVY})]])
+tag(s, 10.62, 1.96, 2.03, "0 ZWOLNIEŃ Z POWODU AI")
+text(s, 8.0, 2.3, 4.7, 0.5, [[("96 etatów objętych zmianą (13% firmy). ", {"bold": True, "size": 10.5}),
+                             ("36 etatów zdolności* → szczyty NORDY, SLA, S-01 Kastella (6,5 et.)", {"size": 10.5})]])
+phases = [("MIES. 1–3", NAVY, "Gwarancja i polityka AI, rozmowy 1:1 · pilotaż P-014/P-012 z ochotnikami NORDY",
+           "Brama: trafność AI ≥ 90%, SLA NORDY nie spada"),
+          ("MIES. 4–6", TEAL, "Cała Obsługa Klienta (55 kont) · automat faktur P-001",
+           "Brama: SLA NORDY ≥ 93%, ≥ 75% faktur automatycznie"),
+          ("MIES. 7–12", AMBER, "Czas → S-01 i szczyty XI–XII · 3 nowe role z wewnątrz · 2. fala AI",
+           "Brama: 0 zwolnień, SLA Finansów ≥ 96,2%")]
+y = 2.85
+for lab, c, what, gate in phases:
+    box(s, 8.0, y, 0.95, 0.58, fill=c)
+    text(s, 8.0, y, 0.95, 0.58, [[(lab, {"bold": True, "size": 9.5, "color": WHITE})]],
+         align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+    text(s, 9.0, y - 0.02, 3.7, 0.62, [[(what, {"size": 9.5})], [(gate, {"size": 8.5, "color": MUTED, "italic": True})]],
+         anchor=MSO_ANCHOR.MIDDLE)
+    y += 0.65
+text(s, 8.0, 4.83, 4.7, 0.3, [[("3 rezultaty po 12 miesiącach (4C)", {"bold": True, "size": 11.5, "color": NAVY})]])
+krow = [("Rezultat", "Dziś", "Cel 12 mies."),
+        ("Wynik: SLA NORDY · kary NORDA + Lumea", "91,0% · 5,92 mln", "≥ 95% · −50%"),
+        ("Adopcja: aktywne konta AI · przeszkoleni OK", "pomiar mies. 1 · 9%", "≥ 80% · 100%"),
+        ("Ludzie: obawa o pracę OK (Q20) · rotacja OK", "4,2 · 24,5%", "≤ 3,5 · ≤ 20%")]
+kw = [(8.0, 2.35), (10.35, 1.2), (11.55, 1.15)]
+y = 5.15
+for i, r in enumerate(krow):
+    hdr = i == 0
+    h = 0.3 if hdr else 0.42
+    box(s, 8.0, y, 4.7, h, fill=NAVY if hdr else (WHITE if i % 2 else PANEL))
+    for j, (cx, w) in enumerate(kw):
+        text(s, cx, y, w, h, [[(r[j], {"bold": hdr or j == 2, "size": 9 if hdr else 9.5,
+                                       "color": WHITE if hdr else (TEAL if j == 2 else INK)})]],
+             anchor=MSO_ANCHOR.MIDDLE)
+    y += h + 0.02
 footer(s, "* Hipoteza zespołu (3B, kol. H): P-014 −30%, P-012 −30%, P-001 −50% godzin z 3A; 1 etat = 160 h/m. "
-          "Źródła: Etap 3 — 3B (wybór, licencje, rok 1), 3C (mapa HITL P-014), 3D (cennik); ankieta Q14, Q20, Q26.")
-notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] Nasza zasada brzmi: AI przygotowuje, człowiek decyduje. Wdrażamy ją tam, gdzie powstają kary — w Obsłudze Klienta, gdzie NORDA i Lumea odpowiadają za 94% kar SLA. Przy rejestracji reklamacji AI rozpoznaje klienta, przygotowuje kartę i proponuje kategorię oraz priorytet, ale każdą kwalifikację zatwierdza konsultant. Gdy AI nie jest pewne na 80%, sprawę od razu przejmuje człowiek. Bezpieczeństwo produktu, wysoka wartość i spory trafiają do specjalisty. Co tydzień sprawdzamy 10% spraw, a gdy trafność spada poniżej 90%, wyłączamy propozycje AI. Przy e-mailach AI pisze szkic, a wysyła człowiek. Faktury rejestruje automat, a wyjątki obsługują księgowi. Decyzje reklamacyjne świadomie zostawiamy ludziom. Koszt technologii to ok. 222 tys. zł z 300 tys. zł limitu.
+          "Źródła: Etap 3 — 3B, 3C, 3D; Etap 4 — 4A (role), 4B (fazy, bramy), 4C (KPI); Historia_miesieczna, Klienci, Działy; ankieta Q15–Q21.",
+       status="36 ET. — SPRAWDŹ 3A (E4)")
+notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] Nasza zasada: AI przygotowuje, człowiek decyduje. Wdrażamy ją tam, gdzie powstają kary. Przy reklamacjach AI proponuje kategorię i priorytet, a zatwierdza konsultant. Gdy AI nie jest pewne na 80%, sprawę od razu przejmuje człowiek. E-mail pisze AI, a podpisuje człowiek. Faktury rejestruje automat, a wyjątki obsługują księgowi. Decyzje reklamacyjne zostają u ludzi. Koszt: 222 tys. zł z 300 tys. limitu.
 
-Uwalniamy ok. 36 etatów zdolności i nie oznacza to zwolnień. Ten czas idzie na szczyty NORDY i projekt dla Kastelli. Zanim ruszy pilotaż, mówimy wprost: „odciążenie, nie redukcja”. Robimy tak, bo 82% konsultantów boi się o pracę, a ten lęk najmocniej przewiduje odejścia.
+Zmiana obejmuje 96 etatów, a większość konsultantów boi się o pracę. Dlatego zaczynamy od ludzi: gwarancja, że przez rok nikt nie straci pracy z powodu AI, i jasne zasady. Potem pilotaż z ochotnikami z zespołu NORDY. Rozszerzamy dopiero, gdy trafność AI przekracza 90%, a SLA nie spada. Uwolniony czas idzie na szczyty NORDY i projekt dla Kastelli, a trzy nowe role obsadzamy z wewnątrz. Po roku: SLA NORDY 95%, 80% aktywnych kont AI i mniej lęku o pracę.
 
 [2:40–3:00 · Decydent] Zarząd odzyskuje marżę, pracownicy dostają rozwój i bezpieczeństwo, klienci — lepszą obsługę. To nie jest AI wszędzie. To AI tam, gdzie się zwraca, i człowiek tam, gdzie decyduje. Dziękujemy.
 
-[DECYZJA ZESPOŁU — 3B/3C] P-014 (HITL, mapa 3C), P-012 (HITL, Asystent), P-001 (automatyzacja), P-015 zostaje u człowieka; hipotezy −30/−30/−50%. [DO WERYFIKACJI] 36 etatów to zdolność z hipotezy, a nie zmierzony efekt — w E4 rozpiszcie, ile idzie na szczyty i SLA, ile na S-01 (6,5 et.) i projekty kierunku (8,6 et.), a ile wchłonie rotacja. [ZAŁOŻENIE] Koszt nie obejmuje szkoleń ani czasu nadzoru (3B A41).""")
+[DECYZJA ZESPOŁU — 3B/3C, 4A–4C] Procesy P-014, P-012, P-001 + P-015 u człowieka; fazy i bramy z 4B; KPI z 4C; gwarancja 0 zwolnień z powodu AI przez 12 mies. (4B C12).
+[DO WERYFIKACJI] 36 etatów liczono na godzinach z arkusza 3A z pliku Etapu 3 (P-001 5 924 h, P-012 7 062 h, P-014 2 362 h). W pliku Etapu 4 arkusz 3A liczy godziny z „Wolumeny klient proces” i daje 1 656,5 / 4 470,1 / 1 494,9 h → przy tych samych hipotezach 2 617,8 h = 16,4 etatu. Potwierdźcie z mentorem, który 3A obowiązuje.
+[PYTANIE JURY] 4A G19: decyzja o nieobsadzaniu wakatów z rotacji (ok. 50 odejść/rok w OK) zapada po mies. 6 — przygotujcie odpowiedź, czy to „redukcja przez rotację”.""")
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 prs.save(OUT)
