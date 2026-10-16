@@ -1,5 +1,7 @@
 # Etap 3 · 70 min · Człowiek + AI: co zostawisz człowiekowi?
 
+> **Decyzje zespołu (finał E3):** [`decyzje-E3.md`](decyzje-E3.md) — P-014 / P-012 / P-001 + P-015 dla człowieka, mapa HITL P-014, 36 etatów, 222 / 300 tys. zł.
+
 **Cel:** 3 procesy do pierwszej fali, 1 proces świadomie zostawiony człowiekowi, mapa HITL i payback w miesiącach.
 **Reguła wyboru:** 2 procesy z szybkim efektem + 1 proces bezpośrednio wspierający priorytet z Etapu 2.
 

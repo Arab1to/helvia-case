@@ -229,16 +229,16 @@ Jednocześnie stawiamy na wartość zamiast wolumenu: trzy projekty analityczne 
 # ───────────────────────────── SLAJD 3 — CZŁOWIEK + AI + LUDZIE (E3 + E4)
 s = prs.slides.add_slide(BLANK)
 header(s, 3, "CZŁOWIEK + AI · A CO Z LUDŹMI?",
-       "AI przejmuje rutynę w 3 procesach, człowiek zostaje przy decyzjach — uwolniony czas idzie w jakość i wzrost, nie w zwolnienia")
+       "AI przygotowuje, człowiek decyduje: 3 procesy z AI, reklamacje złożone zostają u ludzi — 36 etatów zdolności idzie w SLA i wzrost, nie w zwolnienia")
 
-# tabela procesów
+# tabela procesów (3B)
 text(s, 0.55, 1.85, 7.0, 0.3, [[("Pierwsza fala AI (Etap 3)", {"bold": True, "size": 14, "color": NAVY})]])
-tag(s, 3.7, 1.86, 3.85, "HITL: P-012 ✓  ·  P-001, P-039, P-015 DO DECYZJI")
-prow = [("Proces", "Tryb", "Uwolnione h/m*", "Po co (strategia)"),
-        ("P-001 Rejestracja faktur", "Automat + wyjątki", "3 554 (22 et.)", "Odciąża Finanse → odblokowuje S-01"),
-        ("P-012 E-maile klientów", "HITL", "2 825 (18 et.)", "Plan SLA dla NORDY w szczytach"),
-        ("P-039 Oferty handlowe", "Asystent", "854 (5 et.)", "Wspiera S-14 Pilawa"),
-        ("P-015 Reklamacje złożone", "Zostaje u człowieka", "—", "Empatia i decyzja; 31% w OK: „trudne rozmowy”")]
+tag(s, 4.45, 1.86, 3.1, "DECYZJA ZESPOŁU 3B/3C ✓")
+prow = [("Proces", "Tryb · model", "Uwolnione h/m*", "Po co (strategia)"),
+        ("P-014 Rejestracja reklamacji", "HITL · Hybryda", "709 (4,4 et.)", "Źródło kar: NORDA + Lumea = 94% kar SLA"),
+        ("P-012 E-maile klientów", "HITL · Asystent", "2 119 (13,2 et.)", "Największy proces OK; szybciej dla NORDY"),
+        ("P-001 Rejestracja faktur", "Automat + wyjątki", "2 962 (18,5 et.)", "Odciąża Finanse przed S-01 (II kw. 2027)"),
+        ("P-015 Reklamacje złożone", "Zostaje u człowieka", "—", "Zasadność i ryzyko prawne; 31% OK: „trudne rozmowy”")]
 cw = [(0.55, 2.25), (2.8, 1.45), (4.25, 1.3), (5.55, 2.0)]
 y = 2.25
 for i, r in enumerate(prow):
@@ -248,16 +248,16 @@ for i, r in enumerate(prow):
     box(s, 0.55, y, 7.0, 0.5, fill=fill)
     for j, (cx, w) in enumerate(cw):
         col = WHITE if hdr else (TEAL if human and j < 2 else INK)
-        text(s, cx, y + 0.03, w, 0.46, [[(r[j], {"bold": hdr or j == 0, "size": 10.5 if j == 3 else 11, "color": col})]],
+        text(s, cx, y + 0.03, w, 0.46, [[(r[j], {"bold": hdr or j == 0, "size": 10 if j == 3 else 11, "color": col})]],
              anchor=MSO_ANCHOR.MIDDLE)
     y += 0.52
 
-# mini HITL
-text(s, 0.55, 4.95, 7.0, 0.3, [[("HITL dla P-012 (CRM Helios): AI przygotowuje, człowiek decyduje", {"bold": True, "size": 12, "color": NAVY})]])
-steps = [("1 · AI", "rozpoznaje temat, klienta i zamówienie; dzieli e-mail z kilkoma pytaniami", TEAL),
-         ("2 · AI", "pisze szkic z historii kontaktów i bazy gotowych odpowiedzi", TEAL),
-         ("3 · Konsultant", "zatwierdza lub poprawia — wysyłka zawsze po decyzji człowieka", NAVY),
-         ("Eskalacja → lider", "skarga, reklamacja, roszczenie, groźba prawna, dane osobowe, prośba o wyjątek", AMBER)]
+# mini HITL (3C)
+text(s, 0.55, 4.95, 7.0, 0.3, [[("HITL dla P-014 (CRM Helios): AI proponuje, konsultant kwalifikuje", {"bold": True, "size": 12, "color": NAVY})]])
+steps = [("1 · AI", "rozpoznaje klienta i zamówienie, tworzy kartę reklamacji i listę braków", TEAL),
+         ("2 · AI", "proponuje kategorię i priorytet SLA z pewnością; < 80% → konsultant ręcznie", TEAL),
+         ("3 · Konsultant", "zatwierdza lub zmienia kategorię i priorytet — punkt kontroli", NAVY),
+         ("Eskalacja → specjalista", "bezpieczeństwo produktu, wysoka wartość, spór, brak dowodu → P-015", AMBER)]
 x = 0.55
 for i, (t1, t2, c) in enumerate(steps):
     box(s, x, 5.3, 1.6, 1.0, fill=WHITE, line=c, lw=1.25)
@@ -266,34 +266,36 @@ for i, (t1, t2, c) in enumerate(steps):
         a = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, Inches(x + 1.61), Inches(5.69), Inches(0.17), Inches(0.2))
         a.fill.solid(); a.fill.fore_color.rgb = LINE; a.line.fill.background()
     x += 1.8
-text(s, 0.55, 6.32, 7.0, 0.62, [[("Koszt technologii rok 1: ", {"bold": True, "size": 11}),
-                                 ("ok. 295 tys. zł z limitu 300 tys. zł ", {"size": 11}),
-                                 ("(3D: Operacje 111 tys. · Hybryda 150 tys. · Asystent 33 tys.)", {"size": 10, "color": MUTED})]])
+text(s, 0.55, 6.32, 7.0, 0.62, [[("Kontrola: ", {"bold": True, "size": 10.5}),
+                                 ("10% próbki tygodniowo; trafność < 90% → AI wstrzymane. Efekt: czas −30%, błędy 6,9% → < 4%", {"size": 10.5})],
+                                [("Koszt technologii rok 1: ", {"bold": True, "size": 10.5}),
+                                 ("ok. 222 tys. zł z 300 tys. zł ", {"size": 10.5}),
+                                 ("(Hybryda P-014 68 · Asystent P-012 72 · Hybryda P-001 82 tys.)", {"size": 9.5, "color": MUTED})]])
 
 # prawa: A co z ludźmi (E4)
 box(s, 7.85, 1.85, 4.93, 4.95, fill=AMBER_BG)
 text(s, 8.0, 1.95, 4.7, 0.3, [[("A co z ludźmi? (Etap 4)", {"bold": True, "size": 14, "color": NAVY})]])
 tag(s, 10.95, 1.97, 1.7, "UZUPEŁNIĆ W E4")
-text(s, 8.0, 2.4, 4.7, 0.9, [[("ok. 45 etatów-ekw.", {"bold": True, "size": 26, "color": TEAL})],
-                             [("uwolnionego czasu miesięcznie (hipoteza*)", {"size": 11, "color": MUTED})]])
-plan = [("Gdzie trafia czas", "stabilizacja SLA w szczytach NORDY · S-01 Kastella (6,5 et.) · projekty kierunku (8,6 et.)"),
-        ("Zero zwolnień", "dopasowanie przez naturalną rotację i wstrzymanie rekrutacji"),
-        ("Szkolenia", "Obsługa Klienta: 9% → [cel] · Finanse: 17% → [cel] · IT jako ambasadorzy (73%)"),
-        ("Komunikacja", "polityka AI i jasne role — dziś 6,8% widzi jasną komunikację (Q21)"),
-        ("3 KPI na 12 mies.", "SLA OK 92,1% → [cel] · kary −[x]% · rotacja OK 24,5% → [cel]")]
+text(s, 8.0, 2.4, 4.7, 0.9, [[("ok. 36 etatów", {"bold": True, "size": 26, "color": TEAL})],
+                             [("zdolności miesięcznie (5 789 h/m, hipoteza zespołu*)", {"size": 11, "color": MUTED})]])
+plan = [("Gdzie trafia czas", "szczyty XI–XII i SLA NORDY · S-01 Kastella (6,5 et.) · projekty kierunku (8,6 et.)"),
+        ("Zero zwolnień", "„odciążenie, nie redukcja” przed pilotażem, gwarancja ról; resztę dopasowuje rotacja"),
+        ("Szkolenia", "praca z AI przed startem: OK 9% → [cel] · Finanse 17% → [cel] · liderzy zmian z OK"),
+        ("Ryzyko nr 1", "lęk o pracę: 82% w OK boi się o stanowisko; lęk najsilniej przewiduje odejście (r = −0,68)"),
+        ("3 KPI na 12 mies.", "SLA OK 92,1% → [cel] · błędy reklamacji 6,9% → < 4% · rotacja OK 24,5% → [cel]")]
 y = 3.42
 for t1, t2 in plan:
     text(s, 8.0, y, 4.7, 0.62, [[(t1 + ": ", {"bold": True, "size": 11}), (t2, {"size": 10.5})]])
     y += 0.66
-footer(s, "* Hipoteza skrócenia czasu [ZAŁOŻENIE]: P-001 −60%, P-012 −40%, P-039 −30% godzin z 3A; 1 etat = 160 h/m. "
-          "Źródła: Etap 3 — 3A (wolumeny, godziny), 3D (cennik), karty procesów DOCX; ankieta Q16, Q21, Q26.")
-notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] W pierwszej fali AI bierze rutynę w trzech procesach. Rejestracja faktur działa automatycznie z wyjątkami dla człowieka — to odciąża Finanse i odblokowuje projekt dla Kastelli. Odpowiedzi na e-maile klientów projektujemy w trybie human in the loop: AI rozpoznaje sprawę i pisze szkic odpowiedzi, ale wysyłka zawsze wymaga decyzji konsultanta, a skargi, reklamacje, roszczenia i prośby o wyjątek od razu trafiają do lidera zespołu. Reklamacje złożone świadomie zostawiamy ludziom — tam liczą się empatia i decyzja. Koszt technologii: ok. 295 tys. zł w pierwszym roku.
+footer(s, "* Hipoteza zespołu (3B, kol. H): P-014 −30%, P-012 −30%, P-001 −50% godzin z 3A; 1 etat = 160 h/m. "
+          "Źródła: Etap 3 — 3B (wybór, licencje, rok 1), 3C (mapa HITL P-014), 3D (cennik); ankieta Q14, Q20, Q26.")
+notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] Nasza zasada brzmi: AI przygotowuje, człowiek decyduje. Wdrażamy ją tam, gdzie powstają kary — w Obsłudze Klienta, gdzie NORDA i Lumea odpowiadają za 94% kar SLA. Przy rejestracji reklamacji AI rozpoznaje klienta, przygotowuje kartę i proponuje kategorię oraz priorytet, ale każdą kwalifikację zatwierdza konsultant. Gdy AI nie jest pewne na 80%, sprawę od razu przejmuje człowiek. Bezpieczeństwo produktu, wysoka wartość i spory trafiają do specjalisty. Co tydzień sprawdzamy 10% spraw, a gdy trafność spada poniżej 90%, wyłączamy propozycje AI. Przy e-mailach AI pisze szkic, a wysyła człowiek. Faktury rejestruje automat, a wyjątki obsługują księgowi. Decyzje reklamacyjne świadomie zostawiamy ludziom. Koszt technologii to ok. 222 tys. zł z 300 tys. zł limitu.
 
-Uwolniony czas — ok. 45 etatów — nie oznacza zwolnień. Idzie na jakość w szczytach NORDY i na nowe projekty, a zatrudnienie dopasowuje naturalna rotacja. Szkolimy Obsługę Klienta, w której dziś przeszkolonych jest 9%.
+Uwalniamy ok. 36 etatów zdolności i nie oznacza to zwolnień. Ten czas idzie na szczyty NORDY i projekt dla Kastelli. Zanim ruszy pilotaż, mówimy wprost: „odciążenie, nie redukcja”. Robimy tak, bo 82% konsultantów boi się o pracę, a ten lęk najmocniej przewiduje odejścia.
 
 [2:40–3:00 · Decydent] Zarząd odzyskuje marżę, pracownicy dostają rozwój i bezpieczeństwo, klienci — lepszą obsługę. To nie jest AI wszędzie. To AI tam, gdzie się zwraca, i człowiek tam, gdzie decyduje. Dziękujemy.
 
-[DECYZJA ZESPOŁU] Proces HITL w 3C: P-012 (e-maile klientów). [DO DECYZJI] Pozostałe procesy pierwszej fali (P-001, P-039), proces dla człowieka (P-015) i % skrócenia czasu to propozycja asystenta. Prawa kolumna to szkielet na Etap 4.""")
+[DECYZJA ZESPOŁU — 3B/3C] P-014 (HITL, mapa 3C), P-012 (HITL, Asystent), P-001 (automatyzacja), P-015 zostaje u człowieka; hipotezy −30/−30/−50%. [DO WERYFIKACJI] 36 etatów to zdolność z hipotezy, a nie zmierzony efekt — w E4 rozpiszcie, ile idzie na szczyty i SLA, ile na S-01 (6,5 et.) i projekty kierunku (8,6 et.), a ile wchłonie rotacja. [ZAŁOŻENIE] Koszt nie obejmuje szkoleń ani czasu nadzoru (3B A41).""")
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 prs.save(OUT)
