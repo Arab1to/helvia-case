@@ -233,7 +233,7 @@ header(s, 3, "CZŁOWIEK + AI · A CO Z LUDŹMI?",
 
 # tabela procesów
 text(s, 0.55, 1.85, 7.0, 0.3, [[("Pierwsza fala AI (Etap 3)", {"bold": True, "size": 14, "color": NAVY})]])
-tag(s, 3.7, 1.86, 2.4, "3B / 3C DO DECYZJI")
+tag(s, 3.7, 1.86, 3.85, "HITL: P-012 ✓  ·  P-001, P-039, P-015 DO DECYZJI")
 prow = [("Proces", "Tryb", "Uwolnione h/m*", "Po co (strategia)"),
         ("P-001 Rejestracja faktur", "Automat + wyjątki", "3 554 (22 et.)", "Odciąża Finanse → odblokowuje S-01"),
         ("P-012 E-maile klientów", "HITL", "2 825 (18 et.)", "Plan SLA dla NORDY w szczytach"),
@@ -253,18 +253,19 @@ for i, r in enumerate(prow):
     y += 0.52
 
 # mini HITL
-text(s, 0.55, 4.95, 7.0, 0.3, [[("HITL dla P-012: kto decyduje", {"bold": True, "size": 12, "color": NAVY})]])
-steps = [("AI", "klasyfikuje e-mail i pisze szkic", TEAL),
-         ("Człowiek", "zatwierdza / poprawia przed wysyłką", NAVY),
-         ("Eskalacja", "reklamacja, groźba kary SLA, klient NORDA w szczycie", AMBER)]
+text(s, 0.55, 4.95, 7.0, 0.3, [[("HITL dla P-012 (CRM Helios): AI przygotowuje, człowiek decyduje", {"bold": True, "size": 12, "color": NAVY})]])
+steps = [("1 · AI", "rozpoznaje temat, klienta i zamówienie; dzieli e-mail z kilkoma pytaniami", TEAL),
+         ("2 · AI", "pisze szkic z historii kontaktów i bazy gotowych odpowiedzi", TEAL),
+         ("3 · Konsultant", "zatwierdza lub poprawia — wysyłka zawsze po decyzji człowieka", NAVY),
+         ("Eskalacja → lider", "skarga, reklamacja, roszczenie, groźba prawna, dane osobowe, prośba o wyjątek", AMBER)]
 x = 0.55
 for i, (t1, t2, c) in enumerate(steps):
-    b = box(s, x, 5.3, 2.2, 0.95, fill=WHITE, line=c, lw=1.25)
-    text(s, x + 0.08, 5.35, 2.05, 0.9, [[(t1, {"bold": True, "size": 12, "color": c})], [(t2, {"size": 10})]])
-    if i < 2:
-        a = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, Inches(x + 2.22), Inches(5.67), Inches(0.18), Inches(0.22))
+    box(s, x, 5.3, 1.6, 1.0, fill=WHITE, line=c, lw=1.25)
+    text(s, x + 0.04, 5.33, 1.54, 0.96, [[(t1, {"bold": True, "size": 11, "color": c})], [(t2, {"size": 8.5})]])
+    if i < 3:
+        a = s.shapes.add_shape(MSO_SHAPE.RIGHT_ARROW, Inches(x + 1.61), Inches(5.69), Inches(0.17), Inches(0.2))
         a.fill.solid(); a.fill.fore_color.rgb = LINE; a.line.fill.background()
-    x += 2.4
+    x += 1.8
 text(s, 0.55, 6.32, 7.0, 0.62, [[("Koszt technologii rok 1: ", {"bold": True, "size": 11}),
                                  ("ok. 295 tys. zł z limitu 300 tys. zł ", {"size": 11}),
                                  ("(3D: Operacje 111 tys. · Hybryda 150 tys. · Asystent 33 tys.)", {"size": 10, "color": MUTED})]])
@@ -286,13 +287,13 @@ for t1, t2 in plan:
     y += 0.66
 footer(s, "* Hipoteza skrócenia czasu [ZAŁOŻENIE]: P-001 −60%, P-012 −40%, P-039 −30% godzin z 3A; 1 etat = 160 h/m. "
           "Źródła: Etap 3 — 3A (wolumeny, godziny), 3D (cennik), karty procesów DOCX; ankieta Q16, Q21, Q26.")
-notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] W pierwszej fali AI bierze rutynę w trzech procesach. Rejestracja faktur działa automatycznie z wyjątkami dla człowieka — to odciąża Finanse i odblokowuje projekt dla Kastelli. Odpowiedzi na e-maile w trybie human in the loop: AI pisze szkic, człowiek zatwierdza, a każda reklamacja albo ryzyko kary SLA trafia do konsultanta. Reklamacje złożone świadomie zostawiamy ludziom — tam liczą się empatia i decyzja. Koszt technologii: ok. 295 tys. zł w pierwszym roku.
+notes(s, """[1:50–2:40 · Analityk ludzi i ryzyk] W pierwszej fali AI bierze rutynę w trzech procesach. Rejestracja faktur działa automatycznie z wyjątkami dla człowieka — to odciąża Finanse i odblokowuje projekt dla Kastelli. Odpowiedzi na e-maile klientów projektujemy w trybie human in the loop: AI rozpoznaje sprawę i pisze szkic odpowiedzi, ale wysyłka zawsze wymaga decyzji konsultanta, a skargi, reklamacje, roszczenia i prośby o wyjątek od razu trafiają do lidera zespołu. Reklamacje złożone świadomie zostawiamy ludziom — tam liczą się empatia i decyzja. Koszt technologii: ok. 295 tys. zł w pierwszym roku.
 
 Uwolniony czas — ok. 45 etatów — nie oznacza zwolnień. Idzie na jakość w szczytach NORDY i na nowe projekty, a zatrudnienie dopasowuje naturalna rotacja. Szkolimy Obsługę Klienta, w której dziś przeszkolonych jest 9%.
 
 [2:40–3:00 · Decydent] Zarząd odzyskuje marżę, pracownicy dostają rozwój i bezpieczeństwo, klienci — lepszą obsługę. To nie jest AI wszędzie. To AI tam, gdzie się zwraca, i człowiek tam, gdzie decyduje. Dziękujemy.
 
-[DO DECYZJI] Arkusze 3B i 3C są puste — procesy, tryby i % skrócenia czasu to propozycja asystenta. Prawa kolumna to szkielet na Etap 4.""")
+[DECYZJA ZESPOŁU] Proces HITL w 3C: P-012 (e-maile klientów). [DO DECYZJI] Pozostałe procesy pierwszej fali (P-001, P-039), proces dla człowieka (P-015) i % skrócenia czasu to propozycja asystenta. Prawa kolumna to szkielet na Etap 4.""")
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 prs.save(OUT)
