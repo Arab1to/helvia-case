@@ -18,4 +18,4 @@ Kary SLA zjadają zysk (jakość, nie cena) → dlatego nie dajemy NORDZIE rabat
 - [ ] Slajd 2: data startu S-03 (24.12.2027 vs decyzja 15.11.2026); komórka 2B C24 pokazuje #NAME? (MINIFS).
 - [ ] Slajd 3: wybór procesów (P-001, P-012, P-039 + P-015 dla człowieka), % skrócenia czasu [ZAŁOŻENIE], liczba kont w 3B.
 - [ ] Slajd 3 / E4: cele KPI, plan szkoleń, gdzie dokładnie trafia ~45 etatów-ekw.
-- [ ] Skrypt: obecnie ~390 słów w notatkach — przeczytać na głos z zegarem.
+- [ ] Skrypt: obecnie ok. 345 słów w notatkach (limit ~390) — przeczytać na głos z zegarem.
