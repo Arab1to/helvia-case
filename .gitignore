@@ -1,0 +1,13 @@
+# Dane od organizatora są poufne (RODO) — nigdy nie commitujemy
+dane/organizator/*
+!dane/organizator/README.md
+
+# Pliki tymczasowe Office / systemowe
+~$*
+.~lock.*#
+*.tmp
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+.venv/

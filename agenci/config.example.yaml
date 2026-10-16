@@ -1,0 +1,22 @@
+# SZKIC konfiguracji Hermesa dla case'u HELVIA.
+# UWAGA: nazwy kluczy poniżej to [ZAŁOŻENIE] — przed użyciem porównajcie z oficjalną
+# dokumentacją delegacji (Subagent Delegation) i skopiujcie właściwe klucze do ~/.hermes/config.yaml.
+# Zamiar konfiguracji (to jest ważne, nie składnia):
+#   1. główny model orkiestratora — mocny model,
+#   2. subagenci — tańszy, szybszy model,
+#   3. max 5 subagentów równolegle (domyślnie 10),
+#   4. skille ładowane z ~/.hermes/skills/helvia/,
+#   5. bramka do komunikatora zespołu.
+
+model: "<mocny-model-orkiestratora>"
+
+delegation:
+  max_concurrent: 5            # u nas ograniczone do 5
+  model: "<tańszy-szybszy-model>"
+
+skills:
+  paths:
+    - ~/.hermes/skills/helvia
+
+gateway:
+  platform: "<telegram|discord|slack|whatsapp>"
