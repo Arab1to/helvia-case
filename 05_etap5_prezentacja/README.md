@@ -6,7 +6,8 @@
 |---|---|
 | [`skrypt-3min.md`](skrypt-3min.md) | Skrypt z podziałem na mówców i licznikiem słów |
 | [`bank-pytan-jury.md`](bank-pytan-jury.md) | Pytania jury z ramami odpowiedzi + pre-mortem |
-| `slajdy/` | Wersje slajdów (`HELVIA_slajdy_v1.pptx` …) |
+| [`deck-szkic.md`](deck-szkic.md) | Konspekt decku v1 + lista decyzji do podjęcia |
+| `slajdy/` | `HELVIA_deck_v1.pptx` — szkic 3 slajdów (generator: `narzedzia/generuj_deck.py`) |
 
 **Metody:** zasada piramidy Minto (wniosek najpierw → teza w 1. zdaniu skryptu) · pre-mortem („Przegraliśmy — dlaczego?” → lista pytań jury).
 
