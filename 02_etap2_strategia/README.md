@@ -6,7 +6,7 @@
 
 **Excel:** `E2_Pipeline`, `E2_Macierz`, `E2_Opcje_cenowe`. **Kalkulator:** `python3 narzedzia/kalkulator.py rabat|gain|warunkowy …`
 
-**Fala agentów (min 10–30):** Finanse: EV pipeline + opcje cenowe · Operacje: test pojemności · Strateg: macierz 3 kierunków → Juror: trade-off i Trójkąt.
+**Czaty Claude (min 10–30):** `analityk-finansowy`: EV pipeline + opcje cenowe · `analityk-operacji`: test pojemności · `strateg`: macierz 3 kierunków → `weryfikator`: trade-off i Trójkąt.
 
 ## Krok 1 — Pipeline i test pojemności (min 0–15)
 
@@ -55,7 +55,7 @@ Utrata klienta liczona jest **marżą pokrycia** (przychód − koszty zmienne),
 
 **Zdanie:** …
 
-**Najsłabszy punkt (Juror):** …
+**Najsłabszy punkt (weryfikator):** …
 
 ---
 

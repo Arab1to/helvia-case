@@ -5,7 +5,7 @@
 
 **Excel:** `E4_Uwolnione_FTE`, `E4_KPI`, `Rejestr_ryzyk`. **Ryzyka:** [`wiedza/bank-ryzyk.md`](../wiedza/bank-ryzyk.md).
 
-**Fala agentów (min 15–50):** HR: harmonogram i szkolenia · Strateg: komunikacja · Prawny: ryzyka zmiany → Juror: czy każdy KPI ma bazę.
+**Czaty Claude (min 15–50):** `ekspert-hr`: harmonogram i szkolenia · `strateg`: komunikacja · `ekspert-prawny`: ryzyka zmiany → `weryfikator`: czy każdy KPI ma bazę.
 
 **Metody:** mapa interesariuszy (siła × zainteresowanie) → plan komunikacji · ADKAR (Świadomość → Pragnienie → Wiedza → Umiejętność → Utrwalenie) → działania w 3 fazach · rejestr ryzyk (prawdop. × wpływ) → top 5 + mitygacja.
 

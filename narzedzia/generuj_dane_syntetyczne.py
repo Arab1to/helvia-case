@@ -81,7 +81,7 @@ def main():
         ws.append([f"P{i}", round(rng.uniform(1.5, 7.5), 2), rng.choice([0.3, 0.4, 0.5, 0.6, 0.7, 0.8]),
                    rng.randint(8, 30), rng.choice(DZIALY), rng.randint(2, 9)])
 
-    # Ankieta — tylko agregaty per dział (tak jak wysyłamy do agentów)
+    # Ankieta — tylko agregaty per dział (tak jak wklejamy do Claude)
     ws = ark("Ankieta_agregaty", ["Dział", "Liczba odpowiedzi", "Obawa przed AI: % ocen 4–5", "Gotowość do szkoleń: % ocen 4–5", "eNPS"])
     for d, f in zip(DZIALY, fte):
         hot = d == goracy

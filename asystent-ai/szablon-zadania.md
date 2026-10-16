@@ -1,27 +1,23 @@
-# Szablon zadania dla subagenta
+# Szablon zadania dla czatu eksperta
 
-Subagent **nie zna case'u**, więc orkiestrator musi przekazać mu wszystko w `goal` i `context`.
+Czat w projekcie „HELVIA” zna kontekst case'u (instrukcje projektu), ale **nie zna waszych danych ani decyzji z poprzednich etapów** — trzeba mu je wkleić.
 
-```yaml
-goal: [jedno zadanie, np. „Policz udział i sygnał RAG dla 14 klientów”]
-context:
-  ROLA: Jesteś [ekspert] w zespole case solvingu HELVIA Polska (BPO, 720 os., 14 klientów,
-        przychód 114,93 mln zł, marża 8,4%).
-  DANE: [nagłówki kolumn + zagregowane wiersze z Excela, bez danych osobowych]
-  ZASADY: Nie wymyślaj liczb. Liczbę spoza danych oznacz [ZAŁOŻENIE] + sposób weryfikacji.
-          Pokaż wzór i wynik.
-  KRYTERIA JURY: teza w 1 zdaniu, liczby z Excela, trade-off, Trójkąt Dobrostanu, HITL, KPI z bazą.
-  FORMAT: tabela markdown + max 3 zdania wniosku + 1 najsłabszy punkt.
+```
+Działaj wg promptu helvia-[rola].
+ZADANIE: [jedno zadanie, np. „Policz udział i sygnał RAG dla 14 klientów”]
+DANE: [nagłówki kolumn + zagregowane wiersze z Excela, bez danych osobowych]
+DECYZJE DO TEJ PORY: [wiersze z Rejestru decyzji]
+FORMAT: tabela markdown + max 3 zdania wniosku + 1 najsłabszy punkt. Liczby spoza danych oznacz [ZAŁOŻENIE].
 ```
 
-**Skill bazowy:** cały prompt z `prompt_helvia_case.md` zapisany jako skill `helvia-juror` — orkiestrator ładuje go na starcie, a sekcje `case_context`, `metrics` i `evaluation_criteria` wkleja do `context` każdego subagenta.
+Wskazówka: tabelę z Excela kopiujecie wprost (Ctrl+C na zakresie → Ctrl+V do czatu) — Claude czyta ją jako tabelę.
 
 ---
 
-## Gotowe `goal` na każdą falę
+## Gotowe zadania na każdy etap
 
-### E1 — Diagnoza
-| Subagent | goal |
+### E1 — Diagnoza (55 min; oceniany arkusz 1B)
+| Prompt | ZADANIE |
 |---|---|
 | `helvia-analityk-finansowy` | Policz dla 14 klientów: udział w przychodzie, udział skumulowany (Pareto), marżę vs 8,4%, sygnał RAG wg progów; podaj „top 3 = X%”. |
 | `helvia-analityk-operacji` | Zbuduj tabelę 8 działów: FTE, obciążenie, SLA vs umowa, rotacja vs mediana; nadaj sygnał RAG; policz r(rotacja, SLA). |
@@ -29,7 +25,7 @@ context:
 | `helvia-weryfikator` | Sprawdź: Σ FTE = 720, Σ przychodów = 114,93 mln zł, EBIT = 9,65 mln zł; wskaż najsłabszy punkt diagnozy. |
 
 ### E2 — Strategia
-| Subagent | goal |
+| Prompt | ZADANIE |
 |---|---|
 | `helvia-analityk-finansowy` | Policz EV pipeline'u (Σ wartość × p) oraz wpływ na EBIT opcji a)–d) i rabatu bezwarunkowego 1 i 2 pp. |
 | `helvia-analityk-operacji` | Test pojemności: FTE potrzebne na kontrakty z pipeline'u vs dostępne w działach realizujących; luka FTE. |
@@ -37,7 +33,7 @@ context:
 | `helvia-weryfikator` | Oceń trade-off: czy „kosztem” jest realnym kosztem? Czy każdy wierzchołek Trójkąta ma argument z liczbą? |
 
 ### E3 — Człowiek + AI
-| Subagent | goal |
+| Prompt | ZADANIE |
 |---|---|
 | `helvia-analityk-operacji` | Oceń procesy z kart (1–5): potencjał (5 kolumn) i ryzyko (5 kolumn); przypisz ćwiartki; zaproponuj 2+1+1. |
 | `helvia-analityk-finansowy` | Business case dla 3 procesów: koszt licencji, wdrożenie, szkolenia, FTE uwolnione, payback prosty i netto, wariant −30%. |
@@ -45,7 +41,7 @@ context:
 | `helvia-weryfikator` | Przelicz business case; sprawdź, czy proces nr 3 wspiera priorytet z E2; czy HITL ma próg i właściciela w każdym kroku. |
 
 ### E4 — Roczna zmiana
-| Subagent | goal |
+| Prompt | ZADANIE |
 |---|---|
 | `helvia-ekspert-hr` | Harmonogram 3 faz × strumienie (HR, IT, Prawo, Finanse, Klienci, Motywacja) wg ADKAR; plan szkoleń w 3 poziomach. |
 | `helvia-strateg` | Plan komunikacji: zarząd / pracownicy / klienci — przekaz, kanał, termin, kto mówi; mapa interesariuszy. |
@@ -53,7 +49,7 @@ context:
 | `helvia-weryfikator` | Czy każdy KPI ma bazę z Excela, cel 12 mies., źródło i właściciela? Czy progi bram wynikają z KPI? |
 
 ### E5 — Prezentacja
-| Subagent | goal |
+| Prompt | ZADANIE |
 |---|---|
 | `helvia-copywriter` | Z rejestru decyzji napisz 3 nagłówki-tezy slajdów (≤ 30 słów treści na slajd). |
 | `helvia-copywriter` | Uzupełnij skrypt 3:00 z rejestru decyzji; ≤ 390 słów; policz słowa per mówca. |

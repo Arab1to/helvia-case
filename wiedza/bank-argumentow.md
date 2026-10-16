@@ -17,4 +17,4 @@ Każda decyzja potrzebuje **trzech argumentów naraz**. Wybierzcie te, które po
 - „To nie jest AI wszędzie. To AI tam, gdzie się zwraca, i człowiek tam, gdzie decyduje.”
 - „AI zabiera rutynę, nie etaty; uwolniony czas idzie na nowe kontrakty.”
 - „Każdy punkt procentowy rabatu za AI zjada 1/8 rocznego zysku.”
-- „Agenci proponują i sprawdzają, zespół decyduje” — tak też pracowaliśmy nad tym case'em.
+- „AI proponuje i sprawdza, zespół decyduje” — tak też pracowaliśmy nad tym case'em.

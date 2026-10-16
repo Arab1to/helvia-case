@@ -4,7 +4,7 @@
 Szuka w każdym arkuszu kolumn wyglądających na FTE / przychód i sprawdza, czy sumy
 domykają się z opisem case'u: Σ FTE = 720, Σ przychodów = 114,93 mln zł.
 Drukuje TYLKO nagłówki i sumy (żadnych wierszy z danymi) — wynik można bezpiecznie
-wkleić agentom.
+wkleić do Claude.
 
 Użycie:
   python3 narzedzia/sanity_check.py dane/organizator/HELVIA.xlsx

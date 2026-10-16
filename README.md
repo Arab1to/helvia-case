@@ -3,7 +3,7 @@
 > **Wygrywa najlepiej uzasadniona decyzja, nie najlepsza technologia.**
 > „Wybieramy **X** kosztem **Y**, ponieważ **[liczba z Excela]** — i to działa dla **zarządu, pracowników i klientów**.”
 
-To repo jest jedynym miejscem pracy zespołu: playbook rozbity na etapy, szablony Excela, skille agentów AI, rejestr decyzji i materiały do prezentacji. Pełny playbook (PDF): [`docs/Playbook_HELVIA_jak_wygrac_case.pdf`](docs/Playbook_HELVIA_jak_wygrac_case.pdf).
+To repo jest jedynym miejscem pracy zespołu: playbook rozbity na etapy, szablony Excela, prompty ekspertów AI (Claude), rejestr decyzji i materiały do prezentacji. Pełny playbook (PDF): [`docs/Playbook_HELVIA_jak_wygrac_case.pdf`](docs/Playbook_HELVIA_jak_wygrac_case.pdf).
 
 ---
 
@@ -12,14 +12,14 @@ To repo jest jedynym miejscem pracy zespołu: playbook rozbity na etapy, szablon
 | Folder | Kiedy otwierasz | Co tam jest |
 |---|---|---|
 | [`00_start/`](00_start/) | dzień wcześniej i na starcie | [zasady gry (1 strona do druku)](00_start/zasady-gry.md), [role zespołu](00_start/role-zespolu.md), [checklista](00_start/checklista-przed-warsztatami.md), [praca z mentorem](00_start/praca-z-mentorem.md) |
-| [`01_etap1_diagnoza/`](01_etap1_diagnoza/) | Etap 1 · 40 min | Gdzie firma jest dziś? TOP 3 problemy + zdanie diagnozy |
+| [`01_etap1_diagnoza/`](01_etap1_diagnoza/) | Etap 1 · **55 min** | Gdzie firma jest dziś? Flagi 1A → **6–8 wniosków 1B (oceniane)** → 3 priorytety 1C. **[Analiza danych E1](01_etap1_diagnoza/analiza-E1.md)** |
 | [`02_etap2_strategia/`](02_etap2_strategia/) | Etap 2 · 45 min | Dokąd zmierza HELVIA? „Wybieramy X kosztem Y” + opcje cenowe |
 | [`03_etap3_czlowiek-ai/`](03_etap3_czlowiek-ai/) | Etap 3 · 70 min | 3 procesy do AI, 1 zostawiony człowiekowi, mapa HITL, payback |
 | [`04_etap4_zmiana/`](04_etap4_zmiana/) | Etap 4 · 70 min | Harmonogram 3 faz, komunikacja, 3 KPI, ryzyka |
 | [`05_etap5_prezentacja/`](05_etap5_prezentacja/) | Etap 5 · 3 slajdy + 3:00 | Szkielet slajdów, skrypt, bank pytań jury, pre-mortem |
 | [`wiedza/`](wiedza/) | cały czas | metody, formuły Excela PL/EN, bank argumentów, bank ryzyk, hipotezy H1–H3 |
 | [`excel/`](excel/) | cały czas | `HELVIA_szablony.xlsx` — wszystkie puste tabele z formułami + Rejestr decyzji |
-| [`agenci/`](agenci/) | dzień wcześniej (setup) + każdy etap | Hermes Agent: 8 skilli, szablon `delegate_task`, plan fal, zasady HITL, plan B |
+| [`asystent-ai/`](asystent-ai/) | dzień wcześniej (setup) + każdy etap | Projekt Claude „HELVIA”: kontekst case'u + 7 promptów ekspertów, plan pracy na etapy, zasady HITL (bez Hermesa) |
 | [`narzedzia/`](narzedzia/) | w trakcie | kalkulator rabat / gain-sharing / payback, sanity-check Excela, generator danych próbnych |
 | [`dane/`](dane/) | w trakcie | `organizator/` — pliki od organizatora (**nie commitujemy**), `syntetyczne/` — dane na próbę generalną |
 | [`rejestr-decyzji.md`](rejestr-decyzji.md) | koniec każdego etapu | E1–E5: decyzja · kosztem czego · liczba · źródło · akceptacja mentora |
@@ -32,7 +32,7 @@ E1 Diagnoza ──► E2 Strategia ──► E3 Człowiek + AI ──► E4 Rocz
  + liczby         kosztem Y         1 dla człowieka        3 KPI, ryzyka         + bank pytań jury
 ```
 
-**Rytm każdego etapu:** 0–15% czasu dane i podział pracy → 15–75% analiza równoległa (ludzie + agenci) → 75–90% synteza (1 zdanie + 3 liczby) → 90–100% mentor (2–3 min), decyzja, wpis do [Rejestru decyzji](rejestr-decyzji.md).
+**Rytm każdego etapu:** 0–15% czasu dane i podział pracy → 15–75% analiza równoległa (ludzie + czaty Claude) → 75–90% synteza (1 zdanie + 3 liczby) → 90–100% mentor (2–3 min), decyzja, wpis do [Rejestru decyzji](rejestr-decyzji.md).
 
 ## Liczby bazowe (do weryfikacji w Excelu w pierwszych 10 min)
 
@@ -58,8 +58,9 @@ Najmocniejsza broń: **każdy punkt procentowy rabatu „za AI” zjada ok. 1/8 
 ## Szybki start
 
 ```bash
-pip install openpyxl                         # jedyna zależność
-python3 narzedzia/sanity_check.py dane/organizator/HELVIA.xlsx   # czy sumy się domykają (720 FTE, 114,93 mln)
+pip install openpyxl pandas                  # zależności
+python3 narzedzia/sanity_check.py dane/organizator/HITL_Etap_1.xlsx   # czy sumy się domykają (720 FTE, 114,93 mln)
+python3 narzedzia/analiza_e1.py dane/organizator/HITL_Etap_1.xlsx    # wszystkie liczby E1 (wymaga pandas)
 python3 narzedzia/kalkulator.py rabat 2      # wpływ rabatu 2 pp na EBIT
 python3 narzedzia/kalkulator.py --help       # gain-sharing, payback, wrażliwość
 python3 narzedzia/generuj_szablony.py        # odtwarza excel/HELVIA_szablony.xlsx

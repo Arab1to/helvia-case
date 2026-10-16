@@ -10,7 +10,7 @@
 
 **Metody:** zasada piramidy Minto (wniosek najpierw → teza w 1. zdaniu skryptu) · pre-mortem („Przegraliśmy — dlaczego?” → lista pytań jury).
 
-**Agenci:** Copywriter: slajdy · Copywriter: skrypt · Juror: 8 pytań jury → Timekeeper (człowiek, stoper).
+**Czaty Claude:** `copywriter`: slajdy · `copywriter`: skrypt · `weryfikator`: 8 pytań jury → Timekeeper (człowiek, stoper).
 
 ## Szkielet slajdów
 

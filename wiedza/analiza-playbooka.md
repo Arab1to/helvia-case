@@ -34,33 +34,33 @@ Narzędzie: `python3 narzedzia/kalkulator.py baza`.
 
 ## 4. Ścieżka krytyczna i czas
 
-| Etap | Czas | Okno agentów | Kluczowy artefakt | Zależy od |
+| Etap | Czas | Okno dla AI | Kluczowy artefakt | Zależy od |
 |---|---|---|---|---|
-| E1 | 40 min | 10–25 | TOP 3 + zdanie diagnozy | dane organizatora, sanity-check |
+| E1 | 55 min (wg organizatora) | 10–35 | TOP 3 + zdanie diagnozy | dane organizatora, sanity-check |
 | E2 | 45 min | 10–30 | Zdanie „Wybieramy X kosztem Y” + opcje cenowe | E1 (2–3 priorytety) |
 | E3 | 70 min | 15–50 | 3+1 procesy, HITL, payback netto | E2 (priorytet → proces nr 3) |
 | E4 | 70 min | 15–50 | 3 fazy, 2 bramy, 3 KPI, top 5 ryzyk | E2 (luka FTE), E3 (FTE uwolnione) |
 | E5 | ? | — | 3 slajdy, skrypt ≤ 3:00 | Rejestr decyzji E1–E4 |
 
-Łącznie 225 min pracy etapowej + E5. Limit czasu przygotowania E5 nie jest podany w playbooku — **zapytać organizatora**.
+Łącznie 240 min pracy etapowej + E5 (E1 wydłużony przez organizatora do 55 min). Limit czasu przygotowania E5 nie jest podany w playbooku — **zapytać organizatora**.
 
 ## 5. Luki do zamknięcia przed warsztatami
 
 | Luka | Co zrobić | Kto |
 |---|---|---|
-| Brak `prompt_helvia_case.md` (opis case'u) w repo | Wrzucić do `docs/`, zaktualizować `agenci/skills/helvia-juror` | Strateg |
-| Definicja „Trójkąta Dobrostanu” i 10 kryteriów jury | Przepisać z opisu case'u do `agenci/skills/helvia-juror/SKILL.md` | Strateg |
+| Brak `prompt_helvia_case.md` (opis case'u) w repo | Wrzucić do `docs/`, zaktualizować `asystent-ai/prompty/00-kontekst-case.md` | Strateg |
+| Definicja „Trójkąta Dobrostanu” i 10 kryteriów jury | Przepisać z opisu case'u do `asystent-ai/prompty/00-kontekst-case.md` | Strateg |
 | Nazwy działów 7 i 8, nazwy klientów | Uzupełnić po otrzymaniu Excela | Analityk danych |
 | Struktura kosztów / marża pokrycia | Mentor na starcie E2 | Analityk danych |
 | Koszt licencji AI, koszt wdrożenia | Mentor / Excel w E3 | Analityk danych |
 | Zgoda na wysyłanie danych do zewnętrznych modeli | Mentor na starcie | Decydent |
-| Klucze `delegation` w `~/.hermes/config.yaml` | Sprawdzić w dokumentacji Hermesa przy setupie | Projektant |
+| Projekt Claude „HELVIA” (instrukcje + wiedza) | [`asystent-ai/setup.md`](../asystent-ai/setup.md) — Hermes odrzucony | Projektant |
 | Limit czasu przygotowania E5, szablon slajdów organizatora | Organizator | Timekeeper |
 
 ## 6. Jak asystent (Claude) pomaga w każdym etapie
 
 - **Przed etapem:** przypomnienie celu, hipotezy, decyzji do podjęcia; wklejenie szablonu tabeli.
-- **W trakcie:** przeliczenia (kalkulator), formuły PL/EN, krytyka hipotez, szkice zdań syntezy.
+- **W trakcie:** przeliczenia (kalkulator), formuły PL/EN, krytyka hipotez, szkice zdań syntezy — w równoległych czatach z promptami ról (`asystent-ai/`).
 - **Synteza:** zdanie wg wzoru etapu + 3 liczby + najsłabszy punkt + gotowy wiersz do rejestru decyzji.
 - **Przed E5:** skrócenie skryptu do ≤ 390 słów, pre-mortem, 8 pytań jury z odpowiedziami z liczbą.
 - **Zawsze:** zero wymyślonych liczb; brak danych = `[ZAŁOŻENIE]` + sposób weryfikacji.

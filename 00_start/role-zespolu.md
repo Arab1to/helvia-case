@@ -2,12 +2,12 @@
 
 Role przydzielcie **dzień wcześniej** — na warsztatach nie ma czasu na negocjacje.
 
-| Rola | Osoba | Odpowiada za | Narzędzie główne | Agent AI w tle |
+| Rola | Osoba | Odpowiada za | Narzędzie główne | Prompt Claude |
 |---|---|---|---|---|
-| **Decydent** | _…_ | Rozstrzyga w 1 min, pilnuje tezy | Tablica decyzji, [`rejestr-decyzji.md`](../rejestr-decyzji.md) | Orkiestrator (Hermes) |
-| **Analityk danych** | _…_ | Excel: finanse, klienci, pipeline, weryfikacja liczb | Excel + Power Query | Analityk finansowy, Data-checker |
+| **Decydent** | _…_ | Rozstrzyga w 1 min, pilnuje tezy | Tablica decyzji, [`rejestr-decyzji.md`](../rejestr-decyzji.md) | Weryfikator |
+| **Analityk danych** | _…_ | Excel: finanse, klienci, pipeline, weryfikacja liczb | Excel + Power Query | Analityk finansowy, Analityk operacji |
 | **Analityk ludzi i ryzyk** | _…_ | Ankiety, rotacja, Trójkąt Dobrostanu, rejestr ryzyk | Excel (ankiety) + rejestr ryzyk | Ekspert HR i zmiany, Ekspert prawny |
-| **Strateg / narrator** | _…_ | Teza, spójność E1→E5, skrypt | Dokument roboczy | Strateg, Juror |
+| **Strateg / narrator** | _…_ | Teza, spójność E1→E5, skrypt | Dokument roboczy | Strateg, Copywriter |
 | **Projektant + timekeeper** | _…_ | Slajdy, limity czasu | Canva / PowerPoint, timer | Copywriter i trener |
 
 ## Mówcy w skrypcie 3:00
@@ -21,6 +21,6 @@ Role przydzielcie **dzień wcześniej** — na warsztatach nie ma czasu na negoc
 | 2:40–3:00 | Decydent | Trójkąt: zarząd / pracownicy / klienci, zamknięcie |
 
 ## Zasady rozstrzygania
-- Gdy ludzie lub agenci się nie zgadzają — **Decydent rozstrzyga w 1 minutę**.
+- Gdy ludzie lub czaty AI się nie zgadzają — **Decydent rozstrzyga w 1 minutę**.
 - Żadna liczba nie trafia na slajd bez przeliczenia w Excelu przez **Analityka danych**.
 - Timekeeper ustawia alarm **5 min przed końcem** każdego etapu.

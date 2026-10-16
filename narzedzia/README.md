@@ -3,7 +3,8 @@
 | Skrypt | Do czego |
 |---|---|
 | `kalkulator.py` | `baza`, `rabat <pp>`, `gain`, `warunkowy`, `prog-rabatu`, `payback`, `slowa` — wynik zawsze ze wzorem do odtworzenia w Excelu |
-| `sanity_check.py` | Czy Σ FTE = 720 i Σ przychodów = 114,93 mln zł; drukuje tylko nagłówki i sumy (bezpieczne dla agentów) |
+| `sanity_check.py` | Czy Σ FTE = 720 i Σ przychodów = 114,93 mln zł; drukuje tylko nagłówki i sumy (bezpieczne do wklejenia w Claude) |
+| `analiza_e1.py` | Wszystkie liczby E1 z pliku organizatora (klienci, działy, ankieta, procesy, pipeline) — tylko agregaty; wymaga `pandas` |
 | `generuj_szablony.py` | Odtwarza `excel/HELVIA_szablony.xlsx` |
 | `generuj_dane_syntetyczne.py` | Fikcyjna HELVIA do próby generalnej (`--seed N` = nowy wariant) |
 

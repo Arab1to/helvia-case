@@ -35,7 +35,7 @@ Cały playbook służy temu, żeby to zdanie powstało w Etapie 2 i przeszło ni
 
 | Etap | Czas | Wynik |
 |---|---|---|
-| E1 Diagnoza | 40 min | TOP 3 problemy + zdanie diagnozy |
+| E1 Diagnoza | 55 min (wg organizatora) | Flagi 1A → 6–8 wniosków 1B (oceniane) → 3 priorytety 1C |
 | E2 Strategia | 45 min | „Wybieramy X kosztem Y” + opcje cenowe z EBIT |
 | E3 Człowiek + AI | 70 min | 3 procesy + 1 dla człowieka + mapa HITL + payback |
 | E4 Roczna zmiana | 70 min | 3 fazy, 2 bramy, komunikacja, 3 KPI, ryzyka |

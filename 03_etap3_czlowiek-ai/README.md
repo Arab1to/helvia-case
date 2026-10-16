@@ -5,7 +5,7 @@
 
 **Excel:** `E3_Scoring`, `E3_HITL`, `E3_Business_case`. **Kalkulator:** `python3 narzedzia/kalkulator.py payback …`
 
-**Fala agentów (min 15–50):** Operacje: scoring procesów · Finanse: business case · Prawny: ryzyka procesów → Data-checker + Juror.
+**Czaty Claude (min 15–50):** `analityk-operacji`: scoring procesów · `analityk-finansowy`: business case · `ekspert-prawny`: ryzyka procesów → `weryfikator` + przeliczenie w Excelu.
 
 ## Część I — scoring (min 0–30)
 
@@ -65,7 +65,7 @@ Wybieracie **2 procesy z ćwiartki ①**, **1 z ćwiartki ②** (powiązany z E2
 | Akceptacja płatności | **Człowiek** | Zawsze | — | Kierownik działu |
 | Raport błędów AI | AI + człowiek | Przegląd tygodniowy | Wzrost błędów > 1 pp | Ambasador AI |
 
-Diagram (Mermaid — wkleić do mermaid.live lub poprosić agenta o wersję dla procesu):
+Diagram (Mermaid — wkleić do mermaid.live lub poprosić Claude o wersję dla procesu):
 
 ```mermaid
 flowchart LR

@@ -13,7 +13,7 @@ Odpowiedź w **2–3 zdaniach, zawsze z liczbą**. Każde zastrzeżenie mentora 
 | Co jeśli ludzie nie przyjmą AI? | Ambasadorzy w każdym dziale, szkolenia w 3 poziomach, dialog z przedstawicielami pracowników, KPI adopcji mierzony miesięcznie. | Analityk ludzi i ryzyk |
 | Co jeśli pilot się nie uda? | Brama 1: nie skalujemy. Ryzyko ograniczone do kosztu pilota [X zł] i jednego procesu. | Decydent |
 | (zapas) Dlaczego nie [Y]? | Bo [liczba]. Wracamy do [Y], gdy [warunek powrotu z E2]. | Decydent |
-| (zapas) Jak sami używaliście AI? | Agenci proponowali i sprawdzali, zespół decydował — ten sam HITL, który rekomendujemy HELVII; do modeli szły tylko zagregowane dane. | Decydent |
+| (zapas) Jak sami używaliście AI? | Claude w roli 7 ekspertów proponował i sprawdzał, zespół decydował — ten sam HITL, który rekomendujemy HELVII; do modelu szły tylko zagregowane dane. | Decydent |
 | (zapas) Skoro nikogo nie zwalniacie, skąd oszczędność? | Wartość to [N] unikniętych rekrutacji pod kontrakty z pipeline'u ([X] zł/rok), [Y] zł mniej kar SLA i [Z] nieobsadzonych wakatów z naturalnej rotacji — nie cięcie etatów. | Analityk danych |
 | (zapas) Co jeśli oszczędność będzie o 30% niższa? | Analiza wrażliwości: payback netto rośnie z [N] do [N'] mies., rekomendacja się nie zmienia. | Analityk danych |
 
